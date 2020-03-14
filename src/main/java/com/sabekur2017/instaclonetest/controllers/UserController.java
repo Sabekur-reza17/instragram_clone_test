@@ -2,8 +2,10 @@ package com.sabekur2017.instaclonetest.controllers;
 
 import com.sabekur2017.instaclonetest.dtos.UserDto;
 import com.sabekur2017.instaclonetest.enums.Role;
+import com.sabekur2017.instaclonetest.model.Posts;
 import com.sabekur2017.instaclonetest.request.User;
 import com.sabekur2017.instaclonetest.repositories.UserRepository;
+import com.sabekur2017.instaclonetest.service.PostsService;
 import com.sabekur2017.instaclonetest.service.UserService;
 import com.sabekur2017.instaclonetest.util.Constants;
 import org.springframework.beans.BeanUtils;
@@ -32,8 +34,8 @@ public class UserController {
     @Autowired
     UserService userService;
 
-
-
+    @Autowired
+    PostsService postsService;
     private final UserRepository userRepository;
 
     @Autowired
@@ -54,8 +56,13 @@ public class UserController {
         var username =  auth.getName();
 
         com.sabekur2017.instaclonetest.model.User user = userService.getUserByName(username);
+        List<Posts> posts = postsService.getAllPost();
 
-
+        // static void reverse(List list) method reverses the order of elements of the specified list.
+        Collections.reverse(posts);
+        model.addAttribute("image_path", absoluteFilePath);
+        model.addAttribute("post_list",posts);
+        model.addAttribute("user",user);
         return "home";
     }
 
@@ -102,6 +109,11 @@ public class UserController {
         var username =  auth.getName();
 
         com.sabekur2017.instaclonetest.model.User user = userService.getUserByName(username);
+        List<Posts> posts = postsService.getPostsById(user.getUserId());
+        model.addAttribute("image_path", absoluteFilePath);
+        model.addAttribute("user",user);
+        model.addAttribute("post_list",posts);
+        model.addAttribute("post_size",posts.size());
 
         return "user/profile";
     }

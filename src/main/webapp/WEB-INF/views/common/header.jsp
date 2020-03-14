@@ -31,44 +31,38 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
           
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                   <li class="liiii"><a class="link" id="opener" href="#rafi"><i class="flaticon-add"></i></a></li>
                   <li class="liiii"><a class="link" href="${pageContext.request.contextPath }/"><i class="flaticon-home"></i></a></li>
-                  <li class="liiii"><a class="link" href="#bgg"><i class="flaticon-explore"></i></a></li>
-                  <li class="liiii"><a class="link" href="#"><i class="flaticon-heart"></i></a></li>
+
             </ul>
-           <%--
             <a href="${pageContext.request.contextPath}/profile"><img class="ista-img" src="${pageContext.request.contextPath}${user.userImage}" ></img></a>
-          --%>
           </div>
           </div>
        </nav>
     </section>
 
-	<%--<div id="dialog" title="Create post">
+	<div id="dialog" title="Create post">
 
-		<p><img src="${pageContext.request.contextPath}${user.userImage}"
-			alt="profile" height="400" width="1600" class="align-self-center" />
-		</p>
+        <p><img src="${pageContext.request.contextPath}${user.userImage}"
+                alt="profile" height="400" width="1600" class="align-self-center" />
+        </p>
 
-		<form:form method="POST"
-			action="${pageContext.request.contextPath}/user/posts"
-			enctype="multipart/form-data">
-			
-			<p>Upload picture</p>
-			<p><input type="file" name="file" /></p>
-			<p><input type="text" name="userPosts" placeholder="Whats on your mind?" /></p>
-			<p><input class="btn btn-primary float-right" type="submit"
-						value="Submit" /></p>
-			
-		</form:form>
-	</div>--%>
+        <form:form method="POST"
+                   action="${pageContext.request.contextPath}/user/posts"
+                   enctype="multipart/form-data">
+
+            <p>Upload picture</p>
+            <p><input type="file" name="file" /></p>
+            <p><input type="text" name="userPosts" placeholder="Whats on your mind?" /></p>
+            <p><input class="btn btn-primary float-right" type="submit"
+                      value="Submit" /></p>
+
+        </form:form>
+    </div>
 
 	<script src="${pageContext.request.contextPath }/js/jquery-1.12.4.js"></script>
     <script src="${pageContext.request.contextPath }/js/fontawesome.min.js"></script>
